@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <form action="">
+        First Name: <input type="text" name="firstName" id="firstName" required><br>
+        Last Name: <input type="text" name="lastName" id="lastName" required><br>
+        Email: <input type="email" name="email" id="email" required><br>
+        Password: <input type="password" name="password" id="password" minlength="8" required><br>
+        Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" minlength="8" required><br>
+        Birthday: <input type="date" name="birthday" id="birthday" required><br>
+        Sex: <input type="radio" name="sex" id="male" value="male" required> Male
+        <input type="radio" name="sex" id="female" value="female" required> Female<br>
+        Affiliation: <select name="affiliation" id="affiliation" required>
+            <option value="">Select</option>
+            <option value="student">Jedi</option>
+            <option value="teacher">Sith</option>
+            <option value="other">Other</option>
+        </select><br>
+        <input type="checkbox" name="terms" id="terms" required> I accept the terms and conditions<br>
+        <input type="checkbox" name="spam" id="spam" checked> I want to receive spam<br>
+        <input type="submit" value="Register" required>
+        <input type="reset" value="Reset">
+    </form>
+</body>
+
+</html>
