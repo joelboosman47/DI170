@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="">
+    <form method="POST">
         First Name: <input type="text" name="firstName" id="firstName" required><br>
         Last Name: <input type="text" name="lastName" id="lastName" required><br>
         Email: <input type="email" name="email" id="email" required><br>
@@ -19,10 +19,11 @@
         <input type="radio" name="sex" id="female" value="female" required> Female<br>
         Affiliation: <select name="affiliation" id="affiliation" required>
             <option value="">Select</option>
-            <option value="student">Jedi</option>
-            <option value="teacher">Sith</option>
+            <option value="jedi">Jedi</option>
+            <option value="sith">Sith</option>
             <option value="other">Other</option>
         </select><br>
+        Comments:<br><textarea name="comments" id="comments" cols="30" rows="5"></textarea><br>
         <input type="checkbox" name="terms" id="terms" required> I accept the terms and conditions<br>
         <input type="checkbox" name="spam" id="spam" checked> I want to receive spam<br>
         <input type="submit" value="Register" required>
