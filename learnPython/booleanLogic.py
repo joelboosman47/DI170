@@ -19,7 +19,7 @@ if True and False:
     print('This will not print.')
 
 # Calculate the length of the string "What's my length?"
-Convert the string "i am shouting" to uppercase.
+""" Convert the string "i am shouting" to uppercase.
 Convert the string "1000"to the number 1000.
 Combine the number 4 with the string "real" to produce "4real".
 Record the output of the expression 3 * "cool".
@@ -29,4 +29,4 @@ Ask the user for their name, and store it in a variable called name.
 Ask the user for a number. If the number is negative, show a message that says "That number is less than 0!" If the number is positive, show a message that says "That number is greater than 0!" Otherwise, show a message that says "You picked 0!.
 Find the index of "l" in "apple".
 Check whether "y" is in "xylophone".
-Check whether a string called my_string is all in lowercase.
+Check whether a string called my_string is all in lowercase. """
