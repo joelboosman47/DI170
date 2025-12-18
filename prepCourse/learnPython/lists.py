@@ -49,13 +49,22 @@ for i in "first":
 print(list8)
 
 # For all numbers between 1 and 100, return a list of the numbers that are divisible by 12: [12, 24, 36, 48, 60, 72, 84, 96].
+list9 = []
+for i in range(1,101):
+    if i % 12 == 0: list9.append(i)
+print(list9)
 
 # Given the string "amazing", return a list with all the vowels removed: ["m", "z", "n", "g"].
+list10 = []
+for char in "amazing":
+    if char != 'a' and char != 'i': list10.append(char)
+print(list10)
 
 # Generate a list with the following value: [[0, 1, 2], [0, 1, 2], [0, 1, 2]].
+list11 = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+print(list11)
 
 # Generate a list with the following structure:
-
 # [
 #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -68,4 +77,9 @@ print(list8)
 #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # ]
-
+list12 = []
+for i in range(10):
+    list12.append([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+print('[')
+print(*list12, sep='\n')
+print(']')
