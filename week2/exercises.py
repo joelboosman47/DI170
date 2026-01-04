@@ -61,3 +61,64 @@ def find_oldest_cat(cat1, cat2, cat3):
 oldest = find_oldest_cat(cat1, cat2, cat3)
 print(f'The oldest cat is {oldest.name}, and is {oldest.age} years old.')
 
+# 🌟 Exercise 2 : Dogs
+# Goal: Create a Dog class, instantiate objects, call methods, and compare dog sizes.
+
+# Key Python Topics:
+
+# Classes and objects
+# Object instantiation
+# Methods
+# Attributes
+# Conditional statements (if)
+
+# Instructions:
+# Create a Dog class with methods for barking and jumping. Instantiate dog objects, call their methods, and compare their sizes.
+
+# Step 1: Create the Dog Class
+# Create a class called Dog.
+# In the __init__ method, take name and height as parameters and create corresponding attributes.
+# Create a bark() method that prints “<dog_name> goes woof!”.
+# Create a jump() method that prints “<dog_name> jumps <x> cm high!”, where x is height * 2.
+
+# Step 2: Create Dog Objects
+# Create davids_dog and sarahs_dog objects with their respective names and heights.
+
+# Step 3: Print Dog Details and Call Methods
+# Print the name and height of each dog.
+# Call the bark() and jump() methods for each dog.
+
+# Step 4: Compare Dog Sizes
+
+# 1. create the Dog class with attirbutes 
+class Dog:
+    def __init__(self, name, height):
+        self.name = name
+        self.height = height
+
+    #Create a bark() method that prints “<dog_name> goes woof!”.
+    def bark(self):
+        print(f'{self.name} goes woof!')
+
+    #Create a jump() method that prints “<dog_name> jumps <x> cm high!”, where x is height * 2.
+    def jump(self):
+        print(f'{self.name} jumps {self.height * 2} cm high!')
+
+#2. create Dog instances
+davids_dog = Dog("Good Boy", 12)
+sarahs_dog = Dog("Good Girl", 10)
+
+#3.
+#Print the name and height of each dog.
+print(davids_dog.name, davids_dog.height)
+print(sarahs_dog.name, sarahs_dog.height)
+
+#Call the bark() and jump() methods for each dog.
+davids_dog.bark()
+davids_dog.jump()
+sarahs_dog.bark()
+sarahs_dog.jump()
+
+#4. Compare Dog Sizes
+print(f'{davids_dog.name} has a height of {davids_dog.height} cm')
+print(f'{sarahs_dog.name} has a height of {sarahs_dog.height} cm')
