@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week1/day2/exercisesXP.py
+suggestions for improvement:
+- Consider adding more comments to explain the logic behind certain decisions, especially in Exercise 4 with the 'an' vs 'a' article.
+- Using more descriptive variable names (instead of just 'a' and 'b' in Exercise 6) can improve readability.
+Brief justification:
+- correctness: The code accurately and completely solves all the problems described in the exercises. Each exercise's instructions are followed precisely, and the code produces the expected output. Exercise 1 prints "Hello world" four times on separate lines. Exercise 2 calculates the result of the given mathematical expression. Exercise 3 provides the correct predicted outputs as comments. Exercise 4 uses string formatting to print the computer brand. Exercise 5 creates variables for name, age, and shoe size and incorporates them into a sentence. Exercise 6 prints "Hello World" if a > b. Exercise 7 determines if user input is odd or even. Exercise 8 compares the user's name to a predefined name. Exercise 9 checks if the user's height is sufficient to ride a roller coaster.
+- readability: The code is generally well-formatted and easy to read. Using comments to separate exercises and explain the logic is helpful. However, more descriptive variable names in some exercises (e.g., Exercise 6) would further improve readability. The conditional statement in exercise 4 could use improvement.
+- performance: The code is performant, with efficient use of operators and data structures. There are no unnecessary computations or loops.
+- security: The code appears secure. The use of `input()` is handled safely by casting the input to the correct data type (e.g., `int()` in exercises 7 and 9). There are no apparent vulnerabilities to injection attacks.
+
