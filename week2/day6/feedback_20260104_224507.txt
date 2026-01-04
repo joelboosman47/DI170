@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day6/dailyChallenge.py
+suggestions for improvement:
+- Implement the `get_animal_types` and `get_short_info` methods as described in the bonus section.
+- Refactor the `add_animal` method to use `**kwargs` for passing multiple animals at once, according to step 8 in the instructions.
+Brief justification:
+- correctness: The code correctly implements the `Farm` class with the `__init__`, `add_animal`, and `get_info` methods as described in steps 1-5. The output matches the provided example, fulfilling the basic requirements. However, the bonus steps 6-8 (implementing `get_animal_types`, `get_short_info`, and upgrading `add_animal`) are missing, reducing the overall correctness score.
+- readability: The code is reasonably readable, with clear variable names and comments that explain the logic. However, more comments and better formatting could improve readability further.
+- performance: The code has good performance, using efficient data structures and algorithms for the given tasks. No significant performance bottlenecks are apparent.
+- security: The code does not appear to have any security vulnerabilities.
+
