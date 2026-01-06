@@ -97,7 +97,7 @@ print(family_dict, f"\nTotal Cost: {total_cost}")
 # Bonus:
 # Create another dictionary called more_on_zara with creation_date and number_stores. Merge this dictionary with the original brand dictionary and print the result.
 
-brand = {"name":"Zara", "creation_date":1975, "creator_name": "mancio Ortega Gaona", "type_of_clothes":["men", "women", "children", "home"], "international_competitors":["Gap", "H&M", "Benneton"], "number_stores":7000, "major_color":{"France":"blue", "Spain":"red", "US":["pink", "green"]}}
+brand = {"name":"Zara", "creation_date":1975, "creator_name": "Amancio Ortega Gaona", "type_of_clothes":["men", "women", "children", "home"], "international_competitors":["Gap", "H&M", "Benneton"], "number_stores":7000, "major_color":{"France":"blue", "Spain":"red", "US":["pink", "green"]}}
 
 brand["number_stores"] = 2
 
