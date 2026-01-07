@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week1/day4/daily_challenge.py
+suggestions for improvement:
+- The code is well-structured and easy to understand.
+- Consider adding comments to explain the purpose of each block of code, especially in the second challenge.
+Brief justification:
+- correctness: The code accurately solves both challenges as described in the Chapter Content/Questions. It correctly generates multiples of a number and removes consecutive duplicate letters from a string, aligning perfectly with the instructions and examples provided.
+- readability: The code is well-formatted and uses meaningful variable names, making it relatively easy to understand. The inclusion of comments further enhances readability.
+- performance: The code's performance is efficient for the given tasks. It uses simple loops and string manipulation techniques that are suitable for the problem sizes described in the examples.
+- security: The code takes integer and string inputs, but doesn't perform any operations that could lead to security vulnerabilities. The inputs are used in a safe manner.
+
