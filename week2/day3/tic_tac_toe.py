@@ -57,21 +57,23 @@ def player_input(player):
     return True
 
 def check_win(board, player):
-    '''Checks for winning combination of chosen player in given board.\n
-        Returns True if won else False.'''
-    for row in board.values():
-        if row[0] == player and row[1] == player and row[2] == player:
+    # 1. Check Rows and Columns in one loop
+    for i in range(3):
+        # Check Row i
+        if all(board[f"row{i}"][j] == player for j in range(3)):
             return True
-        
-    for col in range(3):
-        if board['row0'][col] == player and board['row1'][col] == player and board['row2'][col] == player:
+        # Check Column i
+        if all(board[f"row{j}"][i] == player for j in range(3)):
             return True
-    
-    if board['row0'][0] == player and board['row1'][1] == player and board['row2'][2] == player:
+
+    # 2. Check Diagonals
+    # Top-left to bottom-right
+    if board["row0"][0] == board["row1"][1] == board["row2"][2] == player:
         return True
-    elif board['row2'][0] == player and board['row1'][1] == player and board['row2'][0] == player:
+    # Top-right to bottom-left
+    if board["row0"][2] == board["row1"][1] == board["row2"][0] == player:
         return True
-    
+
     return False
 
 display_board()
