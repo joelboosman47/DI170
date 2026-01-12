@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day6/exercises.py
+suggestions for improvement:
+- The code is well-structured and follows the instructions, but could benefit from additional comments explaining the logic in more complex sections.
+- The output in `get_animals` could be formatted to be more user-friendly, such as using a numbered list or more descriptive text.
+Brief justification:
+- correctness: The code correctly implements all the exercises as described in the chapter content, including classes, objects, methods, attributes, and conditional statements. The `Zoo` class with the bonus `*args` for `add_animal` is also correctly implemented. All steps in each exercise are addressed.
+- readability: The code is generally well-formatted and easy to follow. Variable names are descriptive, and the code is broken down into logical sections.  Minor improvements could be made by adding more comments within complex methods.
+- performance: The code is efficient and doesn't have any obvious performance bottlenecks. The algorithms used are appropriate for the size of data involved.
+- security: There are no apparent security concerns. The code doesn't take external input in a way that could lead to vulnerabilities.
+

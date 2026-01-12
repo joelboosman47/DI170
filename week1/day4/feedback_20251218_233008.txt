@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week1/day4/exercises.py
+suggestions for improvement:
+- Consider adding more comments to explain complex logic within loops or conditional statements.
+- In Exercise 8, input validation could be implemented to prevent errors if the user enters non-numeric values for toppings or ages.
+Brief justification:
+- correctness: The code accurately addresses each exercise according to the instructions in the chapter content. All instructions are properly implemented and produce the expected results. The bonus exercise is also correctly implemented.
+- readability: The code is generally well-structured and easy to follow. Naming conventions are good, and the code is adequately commented. The structure makes it easy to understand the flow of logic.
+- performance: The code demonstrates good performance by using appropriate data structures and efficient algorithms. The loops are optimized and no unnecessary operations are performed.
+- security: The code is secure, with no apparent vulnerabilities. The user input is handled safely, and there is no risk of code injection.
+
