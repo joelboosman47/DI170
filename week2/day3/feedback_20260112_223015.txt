@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day3/tic_tac_toe_v2.py
+suggestions for improvement:
+- Consider adding input validation to prevent the program from crashing if non-integer values are entered.
+- The game could be extended to allow players to choose their mark (X or O).
+Brief justification:
+- correctness: The code accurately implements a Tic Tac Toe game as described in the chapter content. It includes functions for displaying the board, getting player input, checking for a winner, and managing the game flow.
+- readability: The code is well-structured and easy to understand. The use of functions like `display_board()`, `get_input()`, `check_win()`, and `play()` enhances readability by breaking down the code into logical units. The comments also aid in understanding the code's functionality.
+- performance: The code's performance is efficient for the Tic Tac Toe game. The functions are optimized for the task, and there are no unnecessary computations or loops.
+- security: The code does not involve any external input or file operations, so there are minimal security concerns. The input validation helps prevent unexpected behavior. Overall, the code appears secure.
+
