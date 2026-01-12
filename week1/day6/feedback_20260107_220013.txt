@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week1/day6/daily_challenge.py
+suggestions for improvement:
+- Consider adding comments to Challenge 2 to improve readability for each major section of the code.
+- In Challenge 2, consider using a list comprehension for cleaning the values in the dictionary.
+Brief justification:
+- correctness: The code accurately implements both Challenge 1 and Challenge 2, producing the expected outputs as described in the problem description. All instructions were followed. All test cases would pass.
+- readability: The code is generally well-readable. The comments explain the steps taken, however some extra comments would make it even more easy to understand.
+- performance: The code uses efficient data structures and algorithms for both challenges, resulting in good performance.
+- security: The code appears secure, with no obvious vulnerabilities. In Challenge 2, the use of int() handles potential invalid inputs.
+
