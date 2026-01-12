@@ -1,9 +1,9 @@
 # ***************
-# *    |   |    *
+# *  T | I | C  *
 # * ---|---|--- *
-# *    |   |    *
+# *  T | A | C  *
 # * ---|---|--- *
-# *    |   |    *
+# *  T | O | E  *
 # ***************
 
 # The board is a nested dictionary. Keys are row names, values are dictionaries 
