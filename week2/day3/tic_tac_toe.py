@@ -76,6 +76,13 @@ def check_win(board, player):
 
     return False
 
+def check_tie(board):
+    '''Checks all the cells in all the rows in the board and returns True if they are all filled
+        and False if there is still an empty cell left.'''
+    all_cells = [cell for row in board.values() for cell in row.values()]
+    # This returns True if ' ' is NOT in the list, and False if it is.
+    return ' ' not in all_cells
+
 display_board()
 player_input('X')
 display_board()
