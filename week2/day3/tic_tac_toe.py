@@ -10,7 +10,7 @@ board = {"row0": {0: " ", 1: " ", 2: " "}, "row1": {0: " ", 1: " ", 2: " "}, "ro
 
 def display_board():
     '''Visually displays the Tic Tac Toe board with the player choices entered.'''
-    print('TIC TAC TOE\n***************')
+    print('\n\nTIC TAC TOE\n***************')
     print(f'*  {board["row0"][0]} | {board["row0"][1]} | {board["row0"][2]}  *')
     print('* ---|---|--- *')
     print(f'*  {board["row1"][0]} | {board["row1"][1]} | {board["row1"][2]}  *')
@@ -30,7 +30,8 @@ def player_input_part(part):
             print("Only enter a digit between 1-3")
             continue
         else:
-            if 1 <= choice <= 3:  
+            # if player typed 0, the game will quit.
+            if choice == 0 or (1 <= choice <= 3):  
                 break
             else: 
                 print("Only enter a digit between 1-3")
@@ -42,12 +43,13 @@ def player_input(player):
         It checks that the choice is valid and if so, saves it in the board.\n
         Returns True if input is valid.'''
     
-    print(f'Player {player}\'s turn...\n')
+    print(f'Player {player}\'s turn...\n(Type 0 to quit the game.)\n')
 
     while True:
         row = 'row' + str(player_input_part('row') - 1)
+        if row == 'row-1': return False # check if player wants to quit.
         column = player_input_part('column') - 1
-        
+        if column == -1: return False  # check if player wants to quit.
         current_value = board.get(row).get(column)
         if current_value != ' ':
             print('This position is already taken. Try again.')
@@ -57,6 +59,8 @@ def player_input(player):
     return True
 
 def check_win(board, player):
+    '''Checks if the player won after his/her turn.\n
+    If so, return True.'''
     # 1. Check Rows and Columns in one loop
     for i in range(3):
         # Check Row i
@@ -83,11 +87,31 @@ def check_tie(board):
     # This returns True if ' ' is NOT in the list, and False if it is.
     return ' ' not in all_cells
 
-display_board()
-player_input('X')
-display_board()
-player_input('X')
-display_board()
-player_input('X')
-display_board()
-print(check_win(board, 'X'))
+def switch_player(player):
+    if player == 'X':
+        return 'O'
+    else: return 'X'
+
+def play():
+    current_player = 'X'
+    game_over = False
+    
+    while game_over == False:
+        display_board()
+        
+        # check if player wants to quit the game 
+        if player_input(current_player) == False:
+            print('Good bye!')
+            break
+        if check_win(board, current_player):
+            display_board()
+            game_over = True
+            print(f'Player {current_player} won! Game over.')
+        elif check_tie(board):
+            display_board()
+            print("It's a tie! Game over.")
+            game_over = True
+        else:
+            current_player = switch_player(current_player)
+
+play()
