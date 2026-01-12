@@ -1,0 +1,11 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day3/tic_tac_toe.py
+suggestions for improvement:
+- The board representation as a dictionary of dictionaries is a bit unconventional but works.  Consider a list of lists for better indexing.
+- The input validation in `player_input_part` is good, but the prompt could be more user-friendly (e.g., specifying that the row/column should be between 1 and 3, inclusive).
+- The check_tie function can be simplified using any() instead of not in.
+Brief justification:
+- correctness: The code accurately implements all the required functionalities: representing the board, displaying it, handling player input with validation, checking for a winner, checking for a tie, and managing the main game loop. It aligns precisely with the instructions provided in the chapter content.
+- readability: The code is generally well-structured and easy to follow, with clear function names and comments. The use of f-strings enhances readability. The dictionary of dictionaries representation of the board is slightly less readable than a list of lists, but it's still understandable.
+- performance: The code's performance is adequate for a Tic Tac Toe game. The winning condition check is efficient, and the board representation doesn't introduce any significant overhead.
+- security: The code doesn't involve any external input or potentially unsafe operations, making it secure.
+
