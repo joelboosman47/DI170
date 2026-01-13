@@ -14,11 +14,11 @@ def display_board():
     '''Visually displays the Tic Tac Toe board with the player choices entered.'''
     print('\n\nTIC TAC TOE\n***************')
     # Using f-strings to inject the specific values from our nested board dictionary.
-    print(f'* {board["row0"][0]} | {board["row0"][1]} | {board["row0"][2]}  *')
+    print(f'*  {board["row0"][0]} | {board["row0"][1]} | {board["row0"][2]}  *')
     print('* ---|---|--- *')
-    print(f'* {board["row1"][0]} | {board["row1"][1]} | {board["row1"][2]}  *')
+    print(f'*  {board["row1"][0]} | {board["row1"][1]} | {board["row1"][2]}  *')
     print('* ---|---|--- *')
-    print(f'* {board["row2"][0]} | {board["row2"][1]} | {board["row2"][2]}  *')
+    print(f'*  {board["row2"][0]} | {board["row2"][1]} | {board["row2"][2]}  *')
     print('***************')
 
 def player_input_part(part):
