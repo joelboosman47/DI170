@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day2/exercises.py
+suggestions for improvement:
+- Consider adding more descriptive variable names to enhance readability.
+- The code is well-structured, but including more comments could further clarify the logic.
+Brief justification:
+- correctness: All exercises are correctly implemented according to the problem descriptions. The code accurately defines and calls functions, uses parameters effectively, and incorporates the random module and conditional statements as requested. The bonus part in Ex7 is also fully implemented.
+- readability: The code is generally readable, with good use of function and variable names. Docstrings are included which improve understanding. However, some variable names could be more descriptive.
+- performance: The code is performant, utilizing efficient built-in functions and data structures. The use of list comprehension in exercise 6 is a good choice.
+- security: The code does not have any apparent security concerns. Input validation is implemented in Exercise 7, ensuring the user enters a valid month number.
+

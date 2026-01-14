@@ -1,0 +1,10 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week1/day6/exercises.py
+suggestions for improvement:
+- Consider adding more comments to explain the logic behind the bonus section of Exercise 2.
+- In Exercise 3, minor typo in the Zara creator name. Consider correcting it.
+Brief justification:
+- correctness: All exercises are correctly implemented as per the instructions. Exercise 1 correctly converts lists to a dictionary. Exercise 2 calculates movie ticket costs based on age, including the bonus user input. Exercise 3 manipulates the Zara brand dictionary as requested. Exercise 4 generates the three required Disney character dictionaries. The code directly addresses all requirements outlined in the chapter content.
+- readability: The code is generally well-formatted and easy to understand. Variable names are descriptive, and the code is logically organized.
+- performance: The code is efficient for the given tasks. The use of `zip` and dictionary comprehensions contribute to good performance.
+- security: There are no apparent security concerns in the code. User input in Exercise 2 is handled safely with type conversion and stripping whitespace.
+
