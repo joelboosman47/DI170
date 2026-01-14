@@ -1,0 +1,7 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week5/day2/exercise_xp_plus.sql
+Brief justification:
+- correctness: The code directly addresses all requirements of Exercise 1 in the chapter content. It correctly creates the database table, inserts data, and performs all specified select queries. The use of 'serial primary key' for auto-incrementing id and correct date formatting ensures full alignment with the exercise instructions.
+- readability: The SQL code is well-formatted and easy to understand. Comments are used effectively to explain each step, enhancing readability.
+- performance: The queries are efficient for the given dataset size. Usage of ILIKE for case-insensitive searches and appropriate WHERE clauses contributes to good performance.
+- security: The code is safe, as it doesn't involve any user inputs that could lead to SQL injection vulnerabilities in this specific exercise. The database operations are straightforward and don't expose any security risks.
+

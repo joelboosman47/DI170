@@ -1,0 +1,7 @@
+URL: https://github.com/joelboosman47/DI170/blob/main/week2/day4/daily_challenge.py
+Brief justification:
+- correctness: The code correctly implements both challenges as described in the chapter content. Challenge 1 sorts comma-separated words, and Challenge 2 finds the longest word in a sentence. Both solutions produce the expected outputs.
+- readability: The code is well-structured and easy to understand, with clear comments explaining each step.
+- performance: The solutions have optimal performance for the given tasks.
+- security: There are no security concerns.
+
