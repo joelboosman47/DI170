@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Exercise 2 : Work with forms</title>
+</head>
+
+<body>
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="firstname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+    <ul class="usersAnswer"></ul>
+
+    <script>
+        // Retrieve the form and console.log it.
+        console.log(document.getElementsByTagName("form")[0]);
+
+        // Retrieve the inputs by their id and console.log them.
+        console.log(document.getElementById("fname").value); //not really gonna return anything since the input fields are empty
+        console.log(document.getElementById("lname").value); //idem
+
+        // Retrieve the inputs by their name attribute and console.log them.
+        console.log(document.getElementsByName("firstname")[0].value);
+        console.log(document.getElementsByName("lastname")[0].value);
+
+        // When the user submits the form (ie. submit event listener)
+        // use event.preventDefault(), why? //because you don't want to do the default behaviour of the browser but something specific instead.
+        // get the values of the input tags,
+        const form = document.forms[0];
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const fname = form.elements.firstname.value;
+            const lname = form.elements.lastname.value;
+            const ul = document.getElementsByClassName("usersAnswer")[0];
+
+            // make sure that they are not empty,
+            if (fname.trim() !== '') {
+                console.log('hello');
+                // create an li per input value,
+                let newLi = document.createElement("li");
+                newLi.innerHTML = fname;
+                // then append them to a the <ul class="usersAnswer"></ul>, below the form.
+                ul.appendChild(newLi);
+            }
+            if (lname.trim() !== '') {
+                console.log('bye!!')
+                newLi = document.createElement("li");
+                newLi.innerHTML = lname;
+                ul.appendChild(newLi);
+            }
+        })
+
+        // The output should be:
+        // <ul class="usersAnswer">
+        //     <li>first name of the user</li>
+        //     <li>last name of the user</li>
+        // </ul>
+    </script>
+</body>
+
+</html>
