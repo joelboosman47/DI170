@@ -16,3 +16,5 @@ function getvalue(event) {
 	document.getElementById("knopje").value =
 		"hahaha je kon het niet laten he? hahaha flieker";
 }
+
+getvalue();
