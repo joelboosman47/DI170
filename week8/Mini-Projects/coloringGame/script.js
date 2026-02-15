@@ -99,16 +99,17 @@ magicToggle.addEventListener("change", (e) => {
 let bNum = 3; // Num of bubbles created on movement (3)
 let bSize = 8; // Bubble size (8)
 let bSpeed = 6; // Bubble speed (6)
-let bDep = 0.1; // Bubble depletion speed (0.1)
+let bDep = 0.05; // Bubble depletion speed (0.05)
 let bDist = 30; // Spark length (30)
 let bStarVar = 2; // Num of star variation (2)
 let bHue = 4; // Color change speed (4)
+let bDelay = 50; // Delay between particle creation in ms (50)
 
 /* --- Main Program: DO NOT EDIT BELOW --- */
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+let lastParticleTime = 0;
 let spots = [];
 let hue = 0;
 
@@ -122,8 +123,12 @@ document.addEventListener("mousemove", function (event) {
 	mouse.y = event.y;
 
 	if (isMagicMode) {
-		for (let i = 0; i < bNum; i++) {
-			spots.push(new Particle());
+		const now = Date.now();
+		if (now - lastParticleTime > bDelay) {
+			for (let i = 0; i < bNum; i++) {
+				spots.push(new Particle());
+			}
+			lastParticleTime = now;
 		}
 	}
 });
