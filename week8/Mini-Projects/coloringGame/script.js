@@ -77,6 +77,12 @@ resetBtn.addEventListener("click", () => {
 	});
 });
 
+// 7. Magic Switch Logic
+magicToggle.addEventListener("change", (e) => {
+	isMagicMode = e.target.checked;
+	// Magic Mode is set but not implemented yet
+});
+
 // Helper to handle visual "active" state
 function setActiveButton(activeBtn) {
 	document
