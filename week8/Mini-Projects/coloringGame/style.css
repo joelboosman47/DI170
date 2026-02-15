@@ -30,65 +30,7 @@
 
         h2 { margin: 0 0 8px 0; color: #333; font-size: 0.95rem; }
 
-        /* --- MAGIC SWITCH --- */
-        .magic-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            padding: 6px 10px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            width: 100%;
-            box-sizing: border-box;
-            justify-content: center;
-        }
-
-        .switch-label { font-weight: bold; color: #555; font-size: 0.9rem; }
-
-        /* The Switch Box */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 26px;
-        }
-
-        .switch input { opacity: 0; width: 0; height: 0; }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-            background-size: 200%;
-            animation: rainbow 2s linear infinite;
-        }
-
-        input:checked + .slider:before { transform: translateX(24px); }
-
-        @keyframes rainbow { 
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+        /* --- MAGIC SWITCH LOGIN GOES HERE ---*/
 
         /* --- COLOR PALETTE --- */
         .palette-grid {
@@ -161,16 +103,7 @@
             border-radius: 8px;
         }
 
-        /* Invisible real input trigger */
-        #colorPicker {
-            visibility: hidden; 
-            position: absolute;
-            width: 0;
-            height: 0;
-        }
-
         p.instructions {
-            font-size: 0.75rem;
             margin: 8px 0;
             text-align: center;
             line-height: 1.2;

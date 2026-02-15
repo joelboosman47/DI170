@@ -70,6 +70,13 @@ randomBtn.addEventListener("click", () => {
 	setActiveButton(randomBtn);
 });
 
+// 6. Activate the reset button
+resetBtn.addEventListener("click", () => {
+	document.querySelectorAll(".cell").forEach((cell) => {
+		cell.style.backgroundColor = "white";
+	});
+});
+
 // Helper to handle visual "active" state
 function setActiveButton(activeBtn) {
 	document
@@ -77,19 +84,6 @@ function setActiveButton(activeBtn) {
 		.forEach((b) => b.classList.remove("active"));
 	activeBtn.classList.add("active");
 }
-
-// 6. Magic Switch Logic
-magicToggle.addEventListener("change", (e) => {
-	isMagicMode = e.target.checked;
-	// Magic Mode is set but not implemented yet
-});
-
-// 7. Activate the reset button
-resetBtn.addEventListener("click", () => {
-	document.querySelectorAll(".cell").forEach((cell) => {
-		cell.style.backgroundColor = "white";
-	});
-});
 
 // Start
 initGrid();
