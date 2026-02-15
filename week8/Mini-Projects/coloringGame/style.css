@@ -1,0 +1,218 @@
+:root {
+            --bg-color: #f0f2f5;
+            --panel-bg: #ffffff;
+            --grid-border: #e1e1e1;
+            --primary: #4a90e2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .controls {
+            width: 320px;
+            background: var(--panel-bg);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 10;
+            overflow: hidden;
+            max-height: 100vh;
+        }
+
+        h2 { margin: 0 0 8px 0; color: #333; font-size: 0.95rem; }
+
+        /* --- MAGIC SWITCH --- */
+        .magic-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+
+        .switch-label { font-weight: bold; color: #555; font-size: 0.9rem; }
+
+        /* The Switch Box */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 200%;
+            animation: rainbow 2s linear infinite;
+        }
+
+        input:checked + .slider:before { transform: translateX(24px); }
+
+        @keyframes rainbow { 
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* --- COLOR PALETTE --- */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .color-btn {
+            width: 100%;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+        }
+
+        .color-btn:hover { transform: scale(1.05); }
+        .color-btn.active { 
+            /* eslint-disable-next-line css/no-important*/
+            border: 3px solid #333 !important; 
+            transform: scale(0.95);
+        }
+
+        .reset-btn {
+            grid-column: span 4;
+            background: #9c9b9b;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .reset-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .reset-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* The Custom "Image" Button (CSS Recreation of the Color Wheel) */
+        .wheel-btn {
+            background: conic-gradient(
+                #FF0000, 
+                #FF8000, 
+                #FFFF00, 
+                #80FF00, 
+                #00FF00, 
+                #00FF80, 
+                #00FFFF, 
+                #0080FF, 
+                #0000FF, 
+                #8000FF, 
+                #FF00FF, 
+                #FF0080, 
+                #FF0000
+            );
+            position: relative;
+            aspect-ratio: 1; /* Keep it square */
+            border-radius: 8px;
+        }
+
+        /* Invisible real input trigger */
+        #colorPicker {
+            visibility: hidden; 
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        p.instructions {
+            font-size: 0.75rem;
+            margin: 8px 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* --- MAIN GRID AREA --- */
+        .canvas-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        #drawingGrid {
+            display: grid;
+            /* 30 columns of equal width */
+            grid-template-columns: repeat(30, 1fr); 
+            width: 600px; /* Fixed size or use 80vmin for responsive */
+            height: 600px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border: 1px solid #ccc;
+        }
+
+        .cell {
+            background-color: white;
+            border: 1px solid #eee;
+            /* Prevent dragging the element itself */
+            -webkit-user-drag: none;
+                -webkit-user-drag: none;
+}
+
+@supports (user-select: none) or (-webkit-user-select: none) or (-moz-user-select: none) or (-ms-user-select: none) {
+    .cell {
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* IE10+/Edge */
+        user-select: none;         /* Standard */
+    }
+}
+        .cell:hover {
+            border-color: #ccc;
+        }
