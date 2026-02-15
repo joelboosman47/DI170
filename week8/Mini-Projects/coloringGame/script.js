@@ -11,6 +11,7 @@ const COLS = 30;
 let isMouseDown = false;
 let currentColor = "#333333"; // Default paint color
 let isMagicMode = false;
+let randomMode = false;
 
 // 1. Initialize Grid
 function initGrid() {
@@ -33,15 +34,15 @@ function initGrid() {
 
 // 2. Painting Logic
 function paint(cell) {
-	if (isMagicMode) {
-		// Magic Mode: Random Color
+	if (randomMode) {
+		// Random Mode: Random Color
 		const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 		cell.style.backgroundColor = randomColor;
 		cell.style.borderColor = randomColor; // Optional: hide border
 	} else {
 		// Standard Mode
 		cell.style.backgroundColor = currentColor;
-		cell.style.borderColor = "#eee"; // Reset border if coming back from magic
+		cell.style.borderColor = "#eee"; // Reset border if coming back from random
 	}
 }
 
@@ -54,17 +55,13 @@ colorBtns.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		setActiveButton(btn);
 		currentColor = btn.getAttribute("data-color");
+		randomMode = false;
 	});
 });
 
 // 5. Custom "Wheel" Button Logic
 wheelBtn.addEventListener("click", () => {
-	colorPicker.click(); // Trigger the hidden input
-});
-
-colorPicker.addEventListener("input", (e) => {
-	currentColor = e.target.value;
-	// Visually select the wheel button
+	randomMode = true;
 	setActiveButton(wheelBtn);
 });
 
@@ -79,6 +76,7 @@ function setActiveButton(activeBtn) {
 // 6. Magic Switch Logic
 magicToggle.addEventListener("change", (e) => {
 	isMagicMode = e.target.checked;
+	// Magic Mode is set but not implemented yet
 });
 
 // 7. Activate the reset button
