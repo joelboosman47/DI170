@@ -154,11 +154,8 @@ class Particle {
 		ctx.fillStyle = this.color;
 		ctx.beginPath();
 		star(this.x, this.y, this.radius * 2, this.radius, this.points);
-		// ctx.roundRect(this.x, this.y, this.size, this.size, 2);
 		ctx.rotate(this.deg);
 		ctx.fill();
-		// ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-		// ctx.fill();
 	}
 	update() {
 		this.x += this.speedX;
@@ -180,7 +177,6 @@ function handleParticle() {
 				ctx.strokeStyle = spots[i].color;
 				ctx.lineWidth = spots[i].size / 3;
 				ctx.moveTo(spots[i].x, spots[i].y);
-				// ctx.lineTo(spots[j].x, spots[j].y);
 				ctx.bezierCurveTo(
 					spots[j].x,
 					spots[j].y,
@@ -220,7 +216,6 @@ function star(x, y, radius1, radius2, npoints) {
 function animate() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	handleParticle();
-	// hue++;
 	requestAnimationFrame(animate);
 }
 
