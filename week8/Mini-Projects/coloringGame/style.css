@@ -140,7 +140,7 @@
         }
 
         /* The Custom "Image" Button (CSS Recreation of the Color Wheel) */
-        .wheel-btn {
+        .random-btn {
             background: conic-gradient(
                 #FF0000, 
                 #FF8000, 

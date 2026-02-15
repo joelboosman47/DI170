@@ -1,6 +1,5 @@
 const grid = document.getElementById("drawingGrid");
-const colorPicker = document.getElementById("colorPicker");
-const wheelBtn = document.getElementById("wheelBtn");
+const randomBtn = document.getElementById("randomBtn");
 const magicToggle = document.getElementById("magicToggle");
 const colorBtns = document.querySelectorAll(".color-btn[data-color]");
 const resetBtn = document.getElementById("resetBtn");
@@ -38,11 +37,9 @@ function paint(cell) {
 		// Random Mode: Random Color
 		const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 		cell.style.backgroundColor = randomColor;
-		cell.style.borderColor = randomColor; // Optional: hide border
 	} else {
 		// Standard Mode
 		cell.style.backgroundColor = currentColor;
-		cell.style.borderColor = "#eee"; // Reset border if coming back from random
 	}
 }
 
@@ -59,10 +56,10 @@ colorBtns.forEach((btn) => {
 	});
 });
 
-// 5. Custom "Wheel" Button Logic
-wheelBtn.addEventListener("click", () => {
+// 5. Custom "random" Button Logic
+randomBtn.addEventListener("click", () => {
 	randomMode = true;
-	setActiveButton(wheelBtn);
+	setActiveButton(randomBtn);
 });
 
 // Helper to handle visual "active" state
@@ -83,7 +80,6 @@ magicToggle.addEventListener("change", (e) => {
 resetBtn.addEventListener("click", () => {
 	document.querySelectorAll(".cell").forEach((cell) => {
 		cell.style.backgroundColor = "white";
-		cell.style.borderColor = "#eee";
 	});
 });
 
