@@ -12,6 +12,13 @@ let currentColor = "#333333"; // Default paint color
 let isMagicMode = false;
 let randomMode = false;
 
+// get available colors for randomBtn to choose from
+const availableColors = [];
+for (let colorBtn of colorBtns) {
+	let color = colorBtn.getAttribute("data-color");
+	availableColors.push(color);
+}
+
 // 1. Initialize Grid
 function initGrid() {
 	grid.innerHTML = "";
@@ -35,7 +42,8 @@ function initGrid() {
 function paint(cell) {
 	if (randomMode) {
 		// Random Mode: Random Color
-		const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+		const randomIndex = Math.floor(Math.random() * availableColors.length);
+		const randomColor = availableColors[randomIndex];
 		cell.style.backgroundColor = randomColor;
 	} else {
 		// Standard Mode
