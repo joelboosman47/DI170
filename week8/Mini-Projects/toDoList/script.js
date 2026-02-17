@@ -22,41 +22,44 @@ inputBox.addEventListener("keydown", (e) => {
 // Function to add a new todo item to the list
 function addNewItem() {
 	let inputValue = inputBox.value;
-	inputBox.value = null;
+	inputBox.value = null; // Clear typed text
 
-	let newLi = document.createElement("li");
-	newLi.classList.add("todo-item");
+	// Only add the new item if some text is entered
+	if (inputValue.trim() !== "") {
+		let newLi = document.createElement("li");
+		newLi.classList.add("todo-item");
 
-	let newDiv = document.createElement("div");
-	newDiv.classList.add("item-left");
+		let newDiv = document.createElement("div");
+		newDiv.classList.add("item-left");
 
-	// Create checkbox for marking as completed
-	let newCheckbox = document.createElement("input");
-	newCheckbox.type = "checkbox";
-	newCheckbox.classList.add("checkbox");
+		// Create checkbox for marking as completed
+		let newCheckbox = document.createElement("input");
+		newCheckbox.type = "checkbox";
+		newCheckbox.classList.add("checkbox");
 
-	// Create editable span for the task text
-	let newSpan = document.createElement("span");
-	newSpan.classList.add("task-text");
-	newSpan.contentEditable = "true";
-	newSpan.innerText = inputValue;
+		// Create editable span for the task text
+		let newSpan = document.createElement("span");
+		newSpan.classList.add("task-text");
+		newSpan.contentEditable = "true";
+		newSpan.innerText = inputValue;
 
-	// connect the created elements
-	newDiv.appendChild(newCheckbox);
-	newDiv.appendChild(newSpan);
-	newLi.appendChild(newDiv);
+		// connect the created elements
+		newDiv.appendChild(newCheckbox);
+		newDiv.appendChild(newSpan);
+		newLi.appendChild(newDiv);
 
-	// Create delete button for removing the item
-	let newBtn = document.createElement("button");
-	newBtn.classList.add("delete-btn");
-	newBtn.innerText = "🗑️";
-	newLi.appendChild(newBtn);
+		// Create delete button for removing the item
+		let newBtn = document.createElement("button");
+		newBtn.classList.add("delete-btn");
+		newBtn.innerText = "🗑️";
+		newLi.appendChild(newBtn);
 
-	// Add the new item to the list
-	listContainer.appendChild(newLi);
+		// Add the new item to the list
+		listContainer.appendChild(newLi);
 
-	// Save the list in the local storage of browser
-	saveData();
+		// Save the list in the local storage of browser
+		saveData();
+	}
 }
 
 // Add event handler for the whole listContainer so checkbox and button still work after restoring data
