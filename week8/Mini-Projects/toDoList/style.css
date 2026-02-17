@@ -7,7 +7,6 @@
 
 body {
     background: linear-gradient(135deg, #153677, #4e085f);
-    /* Of de roze: #ff5f6d, #ffc371 */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -26,7 +25,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- Jouw Input Sectie --- */
+/* --- Your Input Section --- */
 .input-row {
     display: flex;
     align-items: center;
@@ -61,13 +60,12 @@ body {
     background-color: #f0f0f0;
 }
 
-/* --- Jouw Lijst Sectie --- */
+/* --- Your List Section --- */
 #list-container {
     background: #fff;
     border-radius: 10px;
     padding: 20px;
     list-style: none;
-    /* Belangrijk! */
 }
 
 li.todo-item {
@@ -75,12 +73,12 @@ li.todo-item {
     align-items: flex-start;
     justify-content: space-between;
     padding: 12px 8px;
-    /* Iets meer ruimte */
+    /* A bit more space */
     border-bottom: 1px solid #eee;
     font-size: 17px;
 }
 
-/* Verwijder de lijn bij het laatste item voor netheid */
+/* Remove the line for the last item for neatness */
 li.todo-item:last-child {
     border-bottom: none;
 }
@@ -91,10 +89,10 @@ li.todo-item:last-child {
     gap: 12px;
     cursor: pointer;
     flex: 1;
-    /* Zodat de gebruiker weet dat ie kan klikken */
+    /* So the user knows they can click */
 }
 
-/* Checkbox iets groter maken */
+/* Make checkbox a bit bigger */
 .checkbox {
     margin-top: 5px;
     width: 18px;
@@ -110,36 +108,36 @@ li.todo-item:last-child {
     cursor: pointer;
     font-size: 1.2rem;
     transition: transform 0.2s;
-    /* Leuke animatie */
+    /* Nice animation */
 }
 
 .delete-btn:hover {
     transform: scale(1.2);
-    /* Wordt groter als je erover muist */
+    /* Grows when you hover */
 }
 
 .task-text {
     border: none;
-    /* Geen randje */
+    /* No border */
     background: transparent;
-    /* Geen witte achtergrond (belangrijk voor later) */
+    /* No white background */
     outline: none;
-    /* Geen blauwe gloed als je klikt */
+    /* No blue glow when clicked */
     font-size: 17px;
-    /* Zelfde grootte als je eerst had */
-    /*font-family: inherit;    Zelfde lettertype als de rest */
+    /* Same size as before */
+    /*font-family: inherit;    Same font as the rest */
     color: #333;
-    /* Tekstkleur */
+    /* Text color */
     display: block;
     width: 100%;
-    /* Zorg dat hij de ruimte vult */
+    /* Fills the available space */
     /* eslint-disable-next-line css/use-baseline */
     word-break: break-word;
-    /* breekt lange woorden af indien nodig */
+    /* Breaks long words if needed */
     line-height: 1.5;
-    /* Voor betere leesbaarheid bij meerdere regels */
+    /* Better readability for multiple lines */
     cursor: text;
-    /* Laat zien dat je kunt typen */
+    /* Shows you can type */
 }
 
 .task-text.completed {
