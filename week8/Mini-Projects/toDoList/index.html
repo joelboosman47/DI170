@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="todo-card">
+
+        <div class="header">
+            <h2>TO-DO LIST</h2>
+        </div>
+
+        <div class="input-row">
+            <input type="text" id="input-box" placeholder="new task">
+            <button id="add-btn">ADD</button>
+        </div>
+
+        <ul id="list-container">
+            <li class="todo-item">
+                <div class="item-left">
+                    <input type="checkbox" class="checkbox">
+                    <span class="task-text" contenteditable="true"></span>
+                </div>
+
+                <button class="delete-btn" id="delete-btn">🗑️</button>
+            </li>
+        </ul>
+
+    </div>
+</body>
+
+</html>
