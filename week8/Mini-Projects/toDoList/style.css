@@ -66,6 +66,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     list-style: none;
+    visibility: hidden;
+    /* initially it should be hidden (since it is empty) */
 }
 
 li.todo-item {

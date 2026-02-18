@@ -59,6 +59,9 @@ function addNewItem() {
 
 		// Save the list in the local storage of browser
 		saveData();
+
+		// Make the list visible
+		listContainerVisibility(listContainer);
 	}
 }
 
@@ -80,6 +83,7 @@ listContainer.addEventListener("click", function (e) {
 	// 2. Logic for the delete button
 	if (e.target.classList.contains("delete-btn")) {
 		e.target.parentElement.remove();
+		listContainerVisibility(listContainer); // check if there are still elements left in the list
 		saveData();
 	}
 });
@@ -92,6 +96,13 @@ listContainer.addEventListener("keydown", function (e) {
 	}
 });
 
+// Show/hide listContainer when there are no items
+function listContainerVisibility(listContainer) {
+	listContainer.childElementCount > 0
+		? (listContainer.style.visibility = "visible")
+		: (listContainer.style.visibility = "hidden");
+}
+
 // Save and load list in local storage of browser
 function saveData() {
 	// We take the complete innerHTML of the list container and save it
@@ -101,6 +112,7 @@ function saveData() {
 function showTask() {
 	// Retrieve complete innerHTML and return to container
 	listContainer.innerHTML = localStorage.getItem("data");
+	listContainerVisibility(listContainer); // Set visibility of listContainer
 
 	// Restore the checkboxes
 	const tasks = listContainer.querySelectorAll(".todo-item");
