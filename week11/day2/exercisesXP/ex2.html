@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 HTML Form #2</title>
+</head>
+
+<body>
+    <!-- Use the same form structure as Exercise 1.
+    When you click the Send button, the form will be submitted with a POST method.(you can use the same HTML file for the action url) -->
+    <form action="" method="post">
+        <!-- action can be left empty to use the same html file -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="user_name"><br>
+        <label for="comments">Comments</label><br>
+        <textarea name="comments" id="comments"></textarea><br>
+        <button type="submit">Send</button>
+
+        <!-- Where will the sent data appear? Hint : Look at the Network Tab:
+         When sending, if I check the network tab in the browser tools, I can see in the payload the form fields with the data that I entered.-->
+    </form>
+</body>
+
+</html>

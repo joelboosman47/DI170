@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Exercise 1 : HTML Form</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <!-- action can be left empty to use the same html file -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="user_name"><br>
+        <label for="comments">Comments</label><br>
+        <textarea name="comments" id="comments"></textarea><br>
+        <button type="submit">Send</button>
+        <!-- When pressing the Send button, the url will be appended with '?user_name=[whatever I typed in the Name field]&comments=[comments I typen]' -->
+    </form>
+</body>
+
+</html>
