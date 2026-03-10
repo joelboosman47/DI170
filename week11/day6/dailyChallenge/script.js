@@ -65,8 +65,7 @@ async function addGif(event) {
 
 			// Create the delete button
 			const deleteBtn = document.createElement("button");
-			deleteBtn.textContent = "DELETE";
-			deleteBtn.style.marginLeft = "10px";
+			deleteBtn.textContent = "×";
 			deleteBtn.addEventListener("click", () => {
 				results.removeChild(gifContainer); // Remove the entire container
 				--nrOfGifs;
