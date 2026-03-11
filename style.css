@@ -132,9 +132,25 @@
      font-size: 14px;
  }
 
+ .mobile-hint {
+     display: none;
+     background: rgba(102, 126, 234, 0.1);
+     color: #434190;
+     padding: 12px 20px;
+     border-radius: 8px;
+     margin-bottom: 25px;
+     font-size: 14px;
+     text-align: center;
+     border: 1px solid rgba(102, 126, 234, 0.2);
+ }
+
  @media (max-width: 768px) {
      h1 {
          font-size: 32px;
+     }
+
+     .mobile-hint {
+         display: block;
      }
 
      .mini-projects-list {
@@ -142,9 +158,15 @@
      }
 
      .preview-popup {
-         width: 90vw;
-         height: 60vh;
-         left: 5vw !important;
-         top: 20vh !important;
+         width: 320px;
+         height: 240px;
+         left: 50% !important;
+         top: 50% !important;
+         transform: translate(-50%, -50%);
+         cursor: pointer;
+     }
+
+     .preview-popup iframe {
+         pointer-events: none;
      }
  }
