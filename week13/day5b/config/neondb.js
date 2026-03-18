@@ -1,0 +1,17 @@
+import knex from "knex";
+import { config } from "dotenv";
+
+config();
+const { PGHOST, PGPORT, PGUSER, PGDATABASE, PGPASSWORD } = process.env;
+
+export const db = knex({
+	client: "pg",
+	connection: {
+		host: PGHOST,
+		port: PGPORT,
+		user: PGUSER,
+		database: PGDATABASE,
+		password: PGPASSWORD,
+		ssl: { rejectUnauthorized: false },
+	},
+});
