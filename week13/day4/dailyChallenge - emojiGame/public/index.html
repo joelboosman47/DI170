@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Emoji Guessing Game 🤔</title>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Game Area -->
+        <main class="game-board glass-panel">
+            <h1>🤔 Emoji Guessing Game</h1>
+            
+            <div id="score-container">
+                Score: <span id="score">0</span>
+            </div>
+
+            <!-- Form for guessing the emoji -->
+            <form id="emoji-form">
+                <div id="emoji-display" class="large-emoji">
+                    <!-- Inject emoji here -->
+                </div>
+
+                <div id="options-container" class="options-grid">
+                    <!-- Inject 4 radios here -->
+                </div>
+
+                <!-- Display result message here -->
+                <h2 id="message"></h2>
+
+                <div class="button-group">
+                    <button type="submit" id="submit-btn" class="btn primary-btn">Check Guess</button>
+                    <!-- Button to get next emoji -->
+                    <button type="button" id="next-btn" class="btn secondary-btn" style="display: none;">Next Emoji</button>
+                </div>
+            </form>
+
+            <!-- Score Submission Form (Hidden initially) -->
+            <div id="submission-container" class="submission-panel" style="display: none;">
+                <h3>Game Over!</h3>
+                <p>You scored <span id="final-score">0</span>. Enter your name for the leaderboard!</p>
+                <form id="score-form">
+                    <input type="text" id="username" placeholder="Your Name" required maxlength="15" />
+                    <button type="submit" class="btn success-btn">Submit Score</button>
+                </form>
+            </div>
+        </main>
+
+        <!-- Leaderboard Area -->
+        <aside class="leaderboard-panel glass-panel">
+            <h2>🏆 Top 5 Leaderboard</h2>
+            <ul id="leaderboard-list">
+                <!-- Leaderboard items injected here -->
+                <li>Loading...</li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>

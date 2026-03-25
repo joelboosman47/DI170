@@ -3,6 +3,10 @@ import express from "express";
 const app = express();
 const port = 3000;
 
+// Middleware configuration
+app.use(express.json()); // Parser for JSON objects in POST requests
+app.use(express.static("public")); // Serve static frontend files (HTML/CSS/JS)
+
 const emojis = [
 	{ emoji: "😀", name: "Smile" },
 	{ emoji: "🐶", name: "Dog" },
@@ -56,6 +60,8 @@ const emojis = [
 	{ emoji: "🦥", name: "Sloth" },
 ];
 
+let leaderboard = [];
+
 // Pick a random emoji from the list and set if it should be the correct choice
 const genRandomEmojiChoice = (emojis, correct) => {
 	const randIndex = Math.floor(Math.random() * emojis.length);
@@ -63,7 +69,16 @@ const genRandomEmojiChoice = (emojis, correct) => {
 	return randEmoji;
 };
 
-// Return randomly an array of 4 different emojis
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+};
+
+// Return the target emoji and a randomized array of 4 different options
 const presentEmojis = (emojis) => {
 	const emojiArr = [];
 	const correctChoice = genRandomEmojiChoice(emojis, true); // pick the correct emoji
@@ -79,12 +94,52 @@ const presentEmojis = (emojis) => {
 			index++;
 		}
 	}
-	return emojiArr;
+
+	const options = emojiArr.map((e) => e.name);
+	return {
+		targetEmoji: correctChoice.emoji,
+		options: shuffleArray(options),
+	};
 };
 
 app.get("/emojis", (_, res) => {
 	const emojisArr = presentEmojis(emojis);
 	res.status(200).json(emojisArr);
+});
+
+app.post("/guess", (req, res) => {
+	const { targetEmoji, guess } = req.body;
+	const actualEmoji = emojis.find((e) => e.emoji === targetEmoji);
+
+	if (actualEmoji && actualEmoji.name === guess) {
+		res
+			.status(200)
+			.json({
+				message: "Correct!",
+				isCorrect: true,
+				correctName: actualEmoji.name,
+			});
+	} else {
+		res.status(200).json({
+			message: `Wrong! The correct answer was ${actualEmoji ? actualEmoji.name : "Unknown"}`,
+			isCorrect: false,
+			correctName: actualEmoji ? actualEmoji.name : null,
+		});
+	}
+});
+
+app.get("/leaderboard", (_, res) => {
+	res.status(200).json(leaderboard);
+});
+
+app.post("/score", (req, res) => {
+	const { username, score } = req.body;
+	if (username && typeof score === "number") {
+		leaderboard.push({ username, score });
+		leaderboard.sort((a, b) => b.score - a.score);
+		leaderboard = leaderboard.slice(0, 5); // Keep top 5
+	}
+	res.status(200).json({ success: true, leaderboard });
 });
 
 app.listen(port, () =>
