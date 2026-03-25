@@ -72,7 +72,7 @@ projectCards.forEach((card) => {
 projectLinks.forEach((link) => {
 	link.addEventListener("mouseenter", (e) => {
 		if (isMobile()) return;
-		showPreview(link.getAttribute("href"), e.pageX, e.pageY);
+		showPreview(link.getAttribute("href"), e.clientX, e.clientY);
 	});
 
 	link.addEventListener("mouseleave", () => {
