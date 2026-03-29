@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware configuration
 app.use(express.json()); // Parser for JSON objects in POST requests
@@ -112,13 +112,11 @@ app.post("/guess", (req, res) => {
 	const actualEmoji = emojis.find((e) => e.emoji === targetEmoji);
 
 	if (actualEmoji && actualEmoji.name === guess) {
-		res
-			.status(200)
-			.json({
-				message: "Correct!",
-				isCorrect: true,
-				correctName: actualEmoji.name,
-			});
+		res.status(200).json({
+			message: "Correct!",
+			isCorrect: true,
+			correctName: actualEmoji.name,
+		});
 	} else {
 		res.status(200).json({
 			message: `Wrong! The correct answer was ${actualEmoji ? actualEmoji.name : "Unknown"}`,
