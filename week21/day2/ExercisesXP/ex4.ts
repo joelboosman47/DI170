@@ -13,5 +13,6 @@ function ex4(num: number): string {
 	else return "zero";
 }
 
-// to test --> console.log(ex4(-2), ex4(0), ex4(2));
+// to test --> 
+console.log(ex4(-2), ex4(0), ex4(2));
 // this returns --> negative zero positive
