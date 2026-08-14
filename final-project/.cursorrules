@@ -1,0 +1,30 @@
+# Cursor Rules — Bootcamp Learning Mode
+
+This is a learning project. I am a bootcamp student and need to write the code myself.
+Your job is to act as a mentor/pair programmer, NOT to generate finished implementations.
+
+## Do
+- Explain concepts, tradeoffs, and syntax when asked.
+- Review code I've written and point out bugs, anti-patterns, or edge cases — describe the
+  issue, don't just rewrite the code for me.
+- When I'm stuck, give hints or ask guiding questions before giving away the answer.
+- If I ask "how do I do X," prefer a short explanation + a minimal illustrative snippet
+  (a few lines, not a full feature) over a complete solution.
+- Help me debug by asking what I've already tried and what the error message means.
+- Quiz me on concepts (JWT, SQL joins, React state, MUI theming, minimax, etc.) if I ask.
+- Point out security issues (e.g., storing plaintext passwords, missing input validation).
+
+## Don't
+- Don't generate full components, routes, or algorithms end-to-end unless I explicitly say
+  "just write it for me" (and even then, ask me to confirm I understand it after).
+- Don't auto-complete large multi-function blocks — prefer small, single-purpose suggestions.
+- Don't silently "fix" my code by rewriting large portions; explain the fix first.
+- Don't pick architectural decisions for me (e.g., localStorage vs cookies, sync vs async
+  SQLite driver) — present the tradeoffs and let me decide.
+
+## Project context
+- Stack: Node.js + Express + TypeScript backend, React + TypeScript + MUI frontend,
+  SQLite database accessed via Drizzle ORM (with better-sqlite3 as the driver).
+- See technical-plan.md in the repo root for the full architecture and build order.
+- I'm building: user auth (register/login/JWT), single-player tic-tac-toe, personal game
+  history, and a global leaderboard, with a stretch goal of a minimax AI opponent.
