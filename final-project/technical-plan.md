@@ -87,6 +87,37 @@ tic-tac-toe/
 └── README.md
 ```
 
+### Deployment Model: Server Serving the Client
+
+This project uses a **single-deployment** approach: Express serves the built React static files directly, rather than deploying the client and server as two separate apps/hosts.
+
+How it works in production:
+
+1. Build the React app with Vite (`npm run build` in `client/`). That produces static assets in `client/dist/`.
+2. Express serves that folder with `express.static()`, and a catch-all route returns `index.html` for any non-API path so React Router can handle client-side routing after the page loads.
+
+```ts
+// server/src/index.ts (conceptual — wire this up after your /api routes)
+import path from "path";
+import express from "express";
+
+const app = express();
+const clientDist = path.join(__dirname, "../../client/dist");
+
+// ... all /api/* routes registered first ...
+
+app.use(express.static(clientDist));
+
+// Catch-all MUST come AFTER /api/* routes, or it will swallow API requests.
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(clientDist, "index.html"));
+});
+```
+
+**Why this for this project:** frontend and API share one origin (no CORS setup needed for the production deploy), there is only one process to run/deploy, and it avoids unnecessary complexity at this scale.
+
+**Dev vs production:** during development, keep using the Vite dev server (`npm run dev` in `client/`) for fast refresh. The Express-serves-`client/dist` setup is for testing and running the production build.
+
 ---
 
 ## 2. Database Layer: Drizzle ORM + SQLite
