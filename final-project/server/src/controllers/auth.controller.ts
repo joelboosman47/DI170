@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import Database from "better-sqlite3";
 import { createInsertSchema } from "drizzle-zod";
+import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "../db/connection.js";
 import { users } from "../db/schema.js";
@@ -17,6 +18,11 @@ function isUniqueConstraintError(error: unknown): boolean {
 const registerBody = createInsertSchema(users)
 	.omit({ id: true, passwordHash: true, createdAt: true })
 	.extend({ password: z.string().min(8) });
+
+const loginBody = z.object({
+	email: z.email(),
+	password: z.string().min(1),
+});
 
 export async function register(req: Request, res: Response) {
 	const parsed = registerBody.safeParse(req.body);
@@ -54,4 +60,34 @@ export async function register(req: Request, res: Response) {
 		}
 		throw error;
 	}
+}
+
+export async function login(req: Request, res: Response) {
+	const parsed = loginBody.safeParse(req.body);
+	if (!parsed.success) {
+		return res.status(400).json({ error: "Invalid input" });
+	}
+
+	const { email, password } = parsed.data;
+	const user = db.select().from(users).where(eq(users.email, email)).get();
+
+	const passwordMatches =
+		user !== undefined && (await bcrypt.compare(password, user.passwordHash));
+
+	if (!user || !passwordMatches) {
+		return res.status(401).json({ error: "Invalid email or password" });
+	}
+
+	res.cookie("token", signToken(user.id), {
+		httpOnly: true,
+		sameSite: "lax",
+		secure: process.env.NODE_ENV === "production",
+		path: "/",
+	});
+
+	return res.status(200).json({
+		id: user.id,
+		username: user.username,
+		email: user.email,
+	});
 }
