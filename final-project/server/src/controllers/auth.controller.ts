@@ -91,3 +91,32 @@ export async function login(req: Request, res: Response) {
 		email: user.email,
 	});
 }
+
+export function logout(_req: Request, res: Response) {
+	res.clearCookie("token", {
+		httpOnly: true,
+		sameSite: "lax",
+		secure: process.env.NODE_ENV === "production",
+		path: "/",
+	});
+
+	return res.status(200).json({ message: "Logged out" });
+}
+
+export function me(req: Request, res: Response) {
+	const userId = req.user?.id;
+	if (userId === undefined) {
+		return res.status(401).json({ error: "Not logged in" });
+	}
+
+	const user = db.select().from(users).where(eq(users.id, userId)).get();
+	if (!user) {
+		return res.status(401).json({ error: "Not logged in" });
+	}
+
+	return res.status(200).json({
+		id: user.id,
+		username: user.username,
+		email: user.email,
+	});
+}
