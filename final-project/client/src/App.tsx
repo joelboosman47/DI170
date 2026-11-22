@@ -1,16 +1,37 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Stack, Link as MuiLink } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import GamePage from "./pages/GamePage";
+import LeaderboardPage from "./pages/LeaderboardPage";
 
 function App() {
 	return (
-		<Stack spacing={2} sx={{ p: 4 }}>
-			<Typography variant="h4">Tic-Tac-Toe</Typography>
-			<Button variant="contained" color="primary">
-				Primary
-			</Button>
-			<Button variant="contained" color="secondary">
-				Secondary
-			</Button>
-		</Stack>
+		<BrowserRouter>
+			<Stack direction="row" spacing={2} sx={{ p: 2 }}>
+				<MuiLink component={RouterLink} to="/login">
+					Login
+				</MuiLink>
+				<MuiLink component={RouterLink} to="/register">
+					Register
+				</MuiLink>
+				<MuiLink component={RouterLink} to="/game">
+					Game
+				</MuiLink>
+				<MuiLink component={RouterLink} to="/leaderboard">
+					Leaderboard
+				</MuiLink>
+			</Stack>
+
+			<Routes>
+				<Route path="/" element={<Navigate to="/login" replace />} />
+				<Route path="/login" element={<LoginPage />} />
+				<Route path="/register" element={<RegisterPage />} />
+				<Route path="/game" element={<GamePage />} />
+				<Route path="/leaderboard" element={<LeaderboardPage />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
