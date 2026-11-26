@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import GamePage from "./pages/GamePage";
 import LeaderboardPage from "./pages/LeaderboardPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 	return (
@@ -28,7 +29,14 @@ function App() {
 				<Route path="/" element={<Navigate to="/login" replace />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/register" element={<RegisterPage />} />
-				<Route path="/game" element={<GamePage />} />
+				<Route
+					path="/game"
+					element={
+						<ProtectedRoute>
+							<GamePage />
+						</ProtectedRoute>
+					}
+				/>
 				<Route path="/leaderboard" element={<LeaderboardPage />} />
 			</Routes>
 		</BrowserRouter>
