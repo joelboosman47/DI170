@@ -1,20 +1,19 @@
-import { Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
+import Board from "../components/Board";
 
 export default function GamePage() {
-	const { user, loading } = useAuth();
+	const { user } = useAuth();
 
 	return (
-		<>
+		<Stack spacing={2} sx={{ p: 2 }}>
 			<Typography variant="h4">Game</Typography>
-
-			<p>
-				{loading
-					? "Checking login..."
-					: user
-						? `Hi, ${user.username}`
-						: "Not logged in"}
-			</p>
-		</>
+			{user && (
+				<Typography color="textSecondary">
+					Playing as {user.username}
+				</Typography>
+			)}
+			<Board />
+		</Stack>
 	);
 }
