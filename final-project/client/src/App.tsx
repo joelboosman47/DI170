@@ -6,10 +6,12 @@ import RegisterPage from "./pages/RegisterPage";
 import GamePage from "./pages/GamePage";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import IdleLogout from "./components/IdleLogout";
 
 function App() {
 	return (
 		<BrowserRouter>
+			<IdleLogout />
 			<Stack direction="row" spacing={2} sx={{ p: 2 }}>
 				<MuiLink component={RouterLink} to="/login">
 					Login
