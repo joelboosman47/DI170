@@ -30,7 +30,8 @@ export async function register(req: Request, res: Response) {
 		return res.status(400).json({ error: "Invalid input" });
 	}
 
-	const { username, email, password } = parsed.data;
+	const { username, password } = parsed.data;
+	const email = parsed.data.email.trim().toLowerCase();
 	const passwordHash = await bcrypt.hash(password, 10);
 
 	try {
@@ -68,7 +69,8 @@ export async function login(req: Request, res: Response) {
 		return res.status(400).json({ error: "Invalid input" });
 	}
 
-	const { email, password } = parsed.data;
+	const { password } = parsed.data;
+	const email = parsed.data.email.trim().toLowerCase();
 	const user = db.select().from(users).where(eq(users.email, email)).get();
 
 	const passwordMatches =

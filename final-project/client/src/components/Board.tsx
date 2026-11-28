@@ -1,15 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-	Alert,
-	Box,
-	Button,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogTitle,
-	Stack,
-	Typography,
-} from "@mui/material";
+import { Alert, Box, Button, Stack, Typography } from "@mui/material";
 import Square from "./Square";
 import { apiFetch } from "../api/client";
 import { getGameStatus, type Cell } from "../utils/gameLogic";
@@ -23,10 +13,13 @@ function toApiResult(
 	return "loss"; // O won — logged-in player is X
 }
 
-export default function Board() {
+type BoardProps = {
+	onGameSaved?: () => void;
+};
+
+export default function Board({ onGameSaved }: BoardProps) {
 	const [squares, setSquares] = useState<Cell[]>(Array(9).fill(null));
 	const [xIsNext, setXIsNext] = useState(true);
-	const [dialogOpen, setDialogOpen] = useState(false);
 	const [saveError, setSaveError] = useState<string | null>(null);
 
 	const startedAtRef = useRef<number | null>(null);
@@ -67,42 +60,33 @@ export default function Board() {
 			body: JSON.stringify({ result, movesCount, durationSeconds }),
 		})
 			.then(() => {
-				setDialogOpen(true);
+				onGameSaved?.();
 			})
 			.catch((err: unknown) => {
 				setSaveError(
 					err instanceof Error ? err.message : "Could not save game",
 				);
-				setDialogOpen(true);
 			});
-	}, [gameOver, squares, winner, isDraw]);
+	}, [gameOver, squares, winner, isDraw, onGameSaved]);
 
 	function resetGame() {
 		setSquares(Array(9).fill(null));
 		setXIsNext(true);
 		savedRef.current = false;
 		startedAtRef.current = Date.now();
-		setDialogOpen(false);
 		setSaveError(null);
 	}
 
-	let status: string;
-	if (winner) {
-		status = `Winner: ${winner}`;
-	} else if (isDraw) {
-		status = "Draw";
-	} else {
-		status = `Next: ${xIsNext ? "X" : "O"}`;
-	}
-
-	let dialogTitle = "Game over";
-	if (isDraw) dialogTitle = "Draw";
-	else if (winner === "X") dialogTitle = "You won!";
-	else if (winner === "O") dialogTitle = "You lost";
+	let resultMessage: string | null = null;
+	if (isDraw) resultMessage = "Draw";
+	else if (winner === "X") resultMessage = "You won!";
+	else if (winner === "O") resultMessage = "You lost";
 
 	return (
 		<Stack spacing={2} sx={{ alignItems: "center" }}>
-			<Typography>{status}</Typography>
+			{!gameOver && (
+				<Typography>Next: {xIsNext ? "X" : "O"}</Typography>
+			)}
 
 			<Box
 				sx={{
@@ -121,21 +105,19 @@ export default function Board() {
 				))}
 			</Box>
 
-			<Dialog open={dialogOpen} onClose={resetGame}>
-				<DialogTitle>{dialogTitle}</DialogTitle>
-				<DialogContent>
-					{saveError ? (
-						<Alert severity="error">{saveError}</Alert>
-					) : (
-						<Typography>Result saved. Ready for another round?</Typography>
+			{gameOver && resultMessage && (
+				<Stack spacing={1.5} sx={{ alignItems: "center", mt: 0.5 }}>
+					<Typography variant="h6">{resultMessage}</Typography>
+					{saveError && (
+						<Alert severity="error" sx={{ py: 0 }}>
+							{saveError}
+						</Alert>
 					)}
-				</DialogContent>
-				<DialogActions>
 					<Button onClick={resetGame} variant="contained">
-						Play again
+						Play another game?
 					</Button>
-				</DialogActions>
-			</Dialog>
+				</Stack>
+			)}
 		</Stack>
 	);
 }

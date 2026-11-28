@@ -4,7 +4,6 @@ import { Link as RouterLink } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import GamePage from "./pages/GamePage";
-import LeaderboardPage from "./pages/LeaderboardPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import IdleLogout from "./components/IdleLogout";
 
@@ -22,9 +21,6 @@ function App() {
 				<MuiLink component={RouterLink} to="/game">
 					Game
 				</MuiLink>
-				<MuiLink component={RouterLink} to="/leaderboard">
-					Leaderboard
-				</MuiLink>
 			</Stack>
 
 			<Routes>
@@ -39,7 +35,7 @@ function App() {
 						</ProtectedRoute>
 					}
 				/>
-				<Route path="/leaderboard" element={<LeaderboardPage />} />
+				<Route path="/leaderboard" element={<Navigate to="/game" replace />} />
 			</Routes>
 		</BrowserRouter>
 	);

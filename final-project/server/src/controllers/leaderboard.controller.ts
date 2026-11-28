@@ -12,7 +12,7 @@ export function getLeaderboard(_req: Request, res: Response) {
 			losses: sql<number>`sum(case when ${games.result} = 'loss' then 1 else 0 end)`,
 			draws: sql<number>`sum(case when ${games.result} = 'draw' then 1 else 0 end)`,
 			lastPlayedAt: sql<string>`max(${games.playedAt})`,
-			gamesCount: count(games.id),
+			gameCount: count(games.id),
 		})
 		.from(games)
 		.innerJoin(users, eq(games.userId, users.id))

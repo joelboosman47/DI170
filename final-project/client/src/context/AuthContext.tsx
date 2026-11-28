@@ -45,7 +45,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	const login = useCallback(async (email: string, password: string) => {
 		const me = await apiFetch<User>("/api/auth/login", {
 			method: "POST",
-			body: JSON.stringify({ email, password }),
+			body: JSON.stringify({
+				email: email.trim().toLowerCase(),
+				password,
+			}),
 		});
 		setUser(me);
 	}, []);
@@ -54,7 +57,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		async (username: string, email: string, password: string) => {
 			const me = await apiFetch<User>("/api/auth/register", {
 				method: "POST",
-				body: JSON.stringify({ username, email, password }),
+				body: JSON.stringify({
+					username,
+					email: email.trim().toLowerCase(),
+					password,
+				}),
 			});
 			setUser(me);
 		},
